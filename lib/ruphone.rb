@@ -33,19 +33,21 @@ module Ruphone
     phone
   end
 
-  private
+  class << self
+    private
 
-  def self.prefix(phone)
-    "+7#{phone}"
-  end
+    def prefix(phone)
+      "+7#{phone}"
+    end
 
-  def self.plus(phone)
-    "+#{phone}"
-  end
+    def plus(phone)
+      "+#{phone}"
+    end
 
-  def self.normalize_city_code(city_code)
-    return city_code if city_code.nil?
-    return city_code[1..-1] if city_code.start_with?('+')
-    city_code
+    def normalize_city_code(city_code)
+      return city_code if city_code.nil?
+      return city_code[1..-1] if city_code.start_with?('+')
+      city_code
+    end
   end
 end
